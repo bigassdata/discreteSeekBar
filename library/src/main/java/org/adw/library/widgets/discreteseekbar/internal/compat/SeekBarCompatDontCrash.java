@@ -14,6 +14,12 @@
  * limitations under the License.
  */
 
+//===========================================================================================
+// Forked this project b/c it looked like it was dead on Github
+// There is a crash in Android Q that was reported by several users but the owner has not
+// responded.  Forking the project and fixing it here might be the easiest way of fixing it.
+//===========================================================================================
+
 package org.adw.library.widgets.discreteseekbar.internal.compat;
 
 import android.annotation.TargetApi;
@@ -41,7 +47,8 @@ class SeekBarCompatDontCrash {
         marker.setOutlineProvider(new ViewOutlineProvider() {
             @Override
             public void getOutline(View view, Outline outline) {
-                outline.setConvexPath(markerDrawable.getPath());
+                // This line causes a crash in Android Q
+//                outline.setConvexPath(markerDrawable.getPath());
             }
         });
     }
